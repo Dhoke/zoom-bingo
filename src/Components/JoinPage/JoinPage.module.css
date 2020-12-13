@@ -1,0 +1,22 @@
+.modalBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalCard {
+    width: 40vw;
+    height: 60vh;
+
+    padding: 1rem;
+
+    background-color: #ccc;
+    
+}

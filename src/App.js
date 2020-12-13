@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import JoinPage from './Components/JoinPage/JoinPage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import GamePage from './Components/GamePage/GamePage';
+import WebSocketContextProvider from './Contexts/WebSocketContext';
+import AdminPage from './Components/AdminPage/AdminPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WebSocketContextProvider>
+        <Router>
+          <Switch>
+            <Route path='/admin'>
+              <AdminPage />
+            </Route>
+            <Route path='/game'>
+              <GamePage />
+            </Route>
+            <Route path='/'>
+              <JoinPage />
+            </Route>
+          </Switch>
+        </Router>
+      </WebSocketContextProvider>
     </div>
   );
 }
