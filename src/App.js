@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GamePage from './Components/GamePage/GamePage';
 import WebSocketContextProvider from './Contexts/WebSocketContext';
 import AdminPage from './Components/AdminPage/AdminPage';
+import GameContextProvider from './Contexts/GameContext';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
               <AdminPage />
             </Route>
             <Route path='/game'>
-              <GamePage />
+              <GameContextProvider>
+                <GamePage />
+              </GameContextProvider>
             </Route>
             <Route path='/'>
               <JoinPage />
