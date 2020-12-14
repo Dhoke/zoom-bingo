@@ -4,9 +4,9 @@ import BingoCard from '../BingoCard/BingoCard'
 import classes from './AdminPage.module.css'
 
 const AdminPage = () => {
-   
+
     const context = useContext(WebSocketContext)
-    
+
     const [winnerCards, setWinnerCards] = useState([])
     const [winnerActive, setWinnerActive] = useState([])
     const [winnerName, setWinnerName] = useState('')
@@ -22,8 +22,8 @@ const AdminPage = () => {
         context.doDeclareWinner(winnerName)
     }
 
-    if(context.socket != null) {
-        context.socket.on('adminValidate', ({cards, active, name}) => {
+    if (context.socket != null) {
+        context.socket.on('adminValidate', ({ cards, active, name }) => {
             setWinnerActive(active)
             setWinnerCards(cards)
             setWinnerName(name)
@@ -32,7 +32,7 @@ const AdminPage = () => {
 
     // List of players
     let players = null
-    if(context.players.length > 0) {
+    if (context.players.length > 0) {
         players = (
             <div className={classes.players}>
                 <h1>Players list</h1>
@@ -43,7 +43,7 @@ const AdminPage = () => {
 
     // Generate winners cards if needed
     let winnersInfo = null
-    if(winnerCards.length > 0) {
+    if (winnerCards.length > 0) {
         const rows = winnerCards.map((row, i) => {
             const cards = row.map((c, j) => {
                 return <BingoCard
@@ -62,9 +62,9 @@ const AdminPage = () => {
             )
         })
         winnersInfo = (
-            <div>
+            <div className={classes.winnersArea}>
                 <h1>{winnerName}</h1>
-                <div>
+                <div className={classes.winnerGrid}>
                     {rows}
                 </div>
             </div>
@@ -73,18 +73,26 @@ const AdminPage = () => {
 
     // Show declare winner button if needed
     let declareWinner = null
-    if(winnerCards.length > 0) {
-        declareWinner = <button onClick={doDeclareWinner}>Declare winner</button>
+    if (winnerCards.length > 0) {
+        declareWinner = (
+            <div className={classes.winnerControls}>
+                <button onClick={togglePlay}>No winner yet!</button>
+                <button onClick={doDeclareWinner}>Declare winner</button>
+            </div>
+        )
     }
 
     return (
-        <div>
+        <div className={classes.main}>
             <div className={classes.headerArea}>
                 <h1>Admin page</h1>
             </div>
             <div className={classes.roomControls}>
                 <h2>Room is: {context.allowPlay ? 'active.' : 'paused'}</h2>
-                <button onClick={togglePlay}>Toggle</button>
+                <label className={classes.switch} onClick={togglePlay}>
+                    <input type='checkbox' value='off' />
+                    <span className={classes.slider}></span>
+                </label>
                 {declareWinner}
             </div>
             {winnersInfo}

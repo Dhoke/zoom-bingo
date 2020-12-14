@@ -5,11 +5,19 @@
 }
 
 .gameContainer {
+    margin: 0.5rem 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding-top: 1rem;
+    padding: 0.5rem 1.5rem;
+
+    background: rgba( 255, 255, 255, 0.30 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
 }
 
 .row {
@@ -40,4 +48,29 @@ button {
 
 .modalCard {
     background-color: #ccc;
+}
+
+.gamePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 1rem;
+    font-family: 'Poppins' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button:hover {
+    background: rgba( 95, 145, 190, 0.8 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+    color: rgba(51, 51, 51, 1);
+    border: none;
+    padding: 1rem;
+    font-family: 'Poppins' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

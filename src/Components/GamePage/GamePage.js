@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import classes from './GamePage.module.css'
 import BingoCard from '../BingoCard/BingoCard'
 import { WebSocketContext } from '../../Contexts/WebSocketContext'
@@ -9,7 +9,7 @@ const GamePage = () => {
     const websockets = useContext(WebSocketContext)
     const context = useContext(GameContext)
 
-    
+
     // Display winner message if required
     let winnerModal = null
     if (websockets.winner !== null) {
@@ -24,11 +24,11 @@ const GamePage = () => {
 
     // Create cards with real text
     let content = <h1>Play Paused</h1>
-    if(websockets.allowPlay) {
+    if (websockets.allowPlay) {
         content = context.cardText.map((row, i) => {
             const cards = row.map((c, j) => {
                 return (
-                    <BingoCard 
+                    <BingoCard
                         editable={true}
                         i={i}
                         j={j}
@@ -46,14 +46,14 @@ const GamePage = () => {
         })
     }
 
-    const bingoButton = websockets.allowPlay ? <button onClick={context.validate}>BINGO!</button> : null
+    const bingoButton = websockets.allowPlay ? <button className={classes.bingoButton} onClick={context.validate}>BINGO!</button> : null
 
     return (
-        <div>
+        <div className={classes.gamePage}>
             <div className={classes.gameContainer}>
                 {content}
+                {bingoButton}
             </div>
-            {bingoButton}
             {winnerModal}
         </div>
     )

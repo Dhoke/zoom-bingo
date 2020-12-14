@@ -1,3 +1,9 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .gameContainer {
     display: flex;
     flex-direction: column;
@@ -11,10 +17,120 @@
     flex-direction: row;
 }
 
-button {
-    padding: 0.5rem;
-    font-size: 3rem;
-    border: 1px solid black;
-    border-radius: 30px;
-    cursor: pointer;
+.winnersArea {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.headerArea h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.roomControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.roomControls h2 {
+    margin-bottom:0.5rem;
+}
+
+.players {
+    margin-top: 2rem;
+    padding: 1rem;
+
+    width: 20vw;
+    background: rgba( 255, 255, 255, 0.5 );
+    box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+}
+
+.players h1 {
+    margin-bottom: 1rem;
+}
+
+.player {
+    font-size: 1.5rem;
+}
+
+.winnerControls {
+    margin: 1rem 0;
+}
+
+.winnerControls button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    background: rgba( 255, 255, 255, 0.5 );
+    box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+
+    border-radius: 10px;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+
+    background: rgba( 255, 255, 255, 0.5 );
+    box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgba(51, 51, 51, 0.5);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
