@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { WebSocketContext } from '../../Contexts/WebSocketContext'
+import { useHistory } from 'react-router'
 import BingoCard from '../BingoCard/BingoCard'
 import classes from './AdminPage.module.css'
 
@@ -10,6 +11,11 @@ const AdminPage = () => {
     const [winnerCards, setWinnerCards] = useState([])
     const [winnerActive, setWinnerActive] = useState([])
     const [winnerName, setWinnerName] = useState('')
+
+    const history = useHistory()
+    if (context.socket === null) {
+        history.push('/')
+    }
 
     const togglePlay = () => {
         setWinnerCards([])
@@ -76,8 +82,8 @@ const AdminPage = () => {
     if (winnerCards.length > 0) {
         declareWinner = (
             <div className={classes.winnerControls}>
-                <button onClick={togglePlay}>No winner yet!</button>
-                <button onClick={doDeclareWinner}>Declare winner</button>
+                <div className={classes.winnerButton} onClick={togglePlay}>No winner yet!</div>
+                <div className={classes.winnerButton} onClick={doDeclareWinner}>Declare winner</div>
             </div>
         )
     }

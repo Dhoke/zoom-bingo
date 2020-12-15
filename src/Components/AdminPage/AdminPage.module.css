@@ -62,19 +62,28 @@
 
 .winnerControls {
     margin: 1rem 0;
+    display: flex;
 }
 
-.winnerControls button {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.winnerButton {
+  padding: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 10px;
 
-    background: rgba( 255, 255, 255, 0.5 );
-    box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
+  background: rgba( 255, 255, 255, 0.5 );
+  box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 2.5px );
 
-    border-radius: 10px;
+  margin: 0 0.5rem;
 }
+
+.winnerButton:hover {
+  background: rgba( 255, 255, 255, 0.7 );
+  box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.50 );
+}
+
 
 /* Switch */
 .switch {

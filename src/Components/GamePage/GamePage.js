@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import classes from './GamePage.module.css'
 import BingoCard from '../BingoCard/BingoCard'
 import { WebSocketContext } from '../../Contexts/WebSocketContext'
+import { useHistory } from 'react-router'
 import { GameContext } from '../../Contexts/GameContext'
 
 const GamePage = () => {
@@ -9,6 +10,10 @@ const GamePage = () => {
     const websockets = useContext(WebSocketContext)
     const context = useContext(GameContext)
 
+    const history = useHistory()
+    if (websockets.socket === null) {
+        history.push('/')
+    }
 
     // Display winner message if required
     let winnerModal = null
@@ -46,7 +51,7 @@ const GamePage = () => {
         })
     }
 
-    const bingoButton = websockets.allowPlay ? <button className={classes.bingoButton} onClick={context.validate}>BINGO!</button> : null
+    const bingoButton = websockets.allowPlay ? <div className={classes.bingoButton} onClick={context.validate}>BINGO!</div> : null
 
     return (
         <div className={classes.gamePage}>

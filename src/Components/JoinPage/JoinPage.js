@@ -49,7 +49,6 @@ const JoinPage = () => {
                     <h2>Join as player</h2>
                     <input onChange={(e) => setName(e.target.value)} placeholder="Enter your name" />
                     <div className={classes.playerControls}>
-                        <div className={`${classes.button} ${classes.cancel}`} id='cancel' onClick={modalClose}>Cancel</div>
                         <div className={classes.button} onClick={modalSubmit}>Join</div>
                     </div>
                 </div>
@@ -57,7 +56,7 @@ const JoinPage = () => {
                     <h2>Join as admin</h2>
                     <input type="text" placeholder="Enter admin password" />
                     <div className={classes.adminControls}>
-                        <button onClick={joinAsAdmin}>Join as Admin</button>
+                        <div className={classes.button} onClick={joinAsAdmin}>Join as Admin</div>
                     </div>
                 </div>
             </div>
@@ -73,7 +72,7 @@ const JoinPage = () => {
                     <h1 className={classes.bingo}>Bingo</h1>
                 </div>
                 <div className={classes.controls}>
-                    <button onClick={doConnect}>Join room</button>
+                    <div className={classes.joinRoom} onClick={doConnect}>Join room</div>
                 </div>
             </div>
             {nameModal}
